@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "659246061672",
+    "project_id": "ecommerce-b5318",
+    "storage_bucket": "ecommerce-b5318.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659246061672:android:921fb150d595b8a5df43dd",
+        "android_client_info": {
+          "package_name": "com.rmit.multiverseshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659246061672-grll2ns4tlscjncev9i2tntse7et4el4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDePy-algqdGZ-EgoDSiwjHLlrs1ZIQYfo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659246061672-grll2ns4tlscjncev9i2tntse7et4el4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

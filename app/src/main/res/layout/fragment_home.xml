@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:background="@drawable/header">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MULTIVERSESHOP"
+                android:textColor="@color/dark_gray"
+                android:textAlignment="center"
+                android:textSize="26sp"
+                android:paddingTop="14dp"
+                app:layout_collapseMode="none"
+                android:letterSpacing="0.05"
+                android:fontFamily="sans-serif-condensed-medium"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/search"
+            app:iconifiedByDefault="false"
+            app:queryHint="Search products"
+            app:queryBackground="@null"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categories"
+                    android:layout_marginVertical="10dp"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="16dp"/>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="11dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/food_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            app:cardElevation="5dp"
+                            app:cardPreventCornerOverlap="true"
+                            app:cardCornerRadius="20dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingBottom="6dp">
+
+                                <ImageView
+                                    android:layout_height="60dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:padding="7dp"
+                                    android:src="@drawable/food"
+                                    android:scaleType="fitCenter"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Food"
+                                    android:textColor="?android:textColorSecondary"
+                                    android:textSize="16sp"
+                                    android:textAlignment="center"
+                                    android:fontFamily="sans-serif-medium"/>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/drinks_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="5dp"
+                            android:layout_marginHorizontal="10dp"
+                            app:cardElevation="5dp"
+                            app:cardPreventCornerOverlap="true"
+                            app:cardCornerRadius="20dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingBottom="6dp">
+
+                                <ImageView
+                                    android:layout_height="60dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:padding="7dp"
+                                    android:src="@drawable/drinks"
+                                    android:scaleType="fitCenter"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Drinks"
+                                    android:textColor="?android:textColorSecondary"
+                                    android:textSize="16sp"
+                                    android:textAlignment="center"
+                                    android:fontFamily="sans-serif-medium"/>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/tech_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            app:cardElevation="5dp"
+                            app:cardPreventCornerOverlap="true"
+                            app:cardCornerRadius="20dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingBottom="6dp">
+
+                                <ImageView
+                                    android:layout_height="60dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:padding="7dp"
+                                    android:src="@drawable/tech"
+                                    android:scaleType="fitCenter"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tech"
+                                    android:textColor="?android:textColorSecondary"
+                                    android:textSize="16sp"
+                                    android:textAlignment="center"
+                                    android:fontFamily="sans-serif-medium"/>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/fashion_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="5dp"
+                            android:layout_marginHorizontal="10dp"
+                            app:cardElevation="5dp"
+                            app:cardPreventCornerOverlap="true"
+                            app:cardCornerRadius="20dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingBottom="6dp">
+
+                                <ImageView
+                                    android:layout_height="60dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:padding="7dp"
+                                    android:src="@drawable/fashion"
+                                    android:scaleType="fitCenter"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Fashion"
+                                    android:textColor="?android:textColorSecondary"
+                                    android:textSize="16sp"
+                                    android:textAlignment="center"
+                                    android:fontFamily="sans-serif-medium"/>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/sports_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            app:cardElevation="5dp"
+                            app:cardPreventCornerOverlap="true"
+                            app:cardCornerRadius="20dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingBottom="6dp">
+
+                                <ImageView
+                                    android:layout_height="60dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:padding="7dp"
+                                    android:src="@drawable/sports"
+                                    android:scaleType="fitCenter"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Sports"
+                                    android:textColor="?android:textColorSecondary"
+                                    android:textSize="16sp"
+                                    android:textAlignment="center"
+                                    android:fontFamily="sans-serif-medium"/>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/pet_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="5dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="5dp"
+                            app:cardElevation="5dp"
+                            app:cardPreventCornerOverlap="true"
+                            app:cardCornerRadius="20dp">
+
+                            <LinearLayout
+                                android:layout_width="75dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingBottom="6dp">
+
+                                <ImageView
+                                    android:layout_height="60dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:padding="7dp"
+                                    android:src="@drawable/pet"
+                                    android:scaleType="fitCenter"/>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Pet"
+                                    android:textColor="?android:textColorSecondary"
+                                    android:textSize="16sp"
+                                    android:textAlignment="center"
+                                    android:fontFamily="sans-serif-medium"/>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Popular Products"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="16dp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="6dp"
+                    android:paddingBottom="20dp"/>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

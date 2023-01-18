@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="5dp"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/product_five"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:id="@+id/item_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Blue shirt"
+                    android:textSize="18sp"
+                    android:maxLines="1"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="2dp"
+                    android:textColor="@color/black"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"/>
+
+                <ImageButton
+                    android:id="@+id/remove_item_button"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_baseline_close_24"
+                    android:background="@null"
+                    app:tint="?android:textColorSecondary"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"/>
+
+                <TextView
+                    android:id="@+id/item_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Fashion"
+                    android:textSize="14sp"
+                    android:textColor="?android:textColorSecondary"
+                    android:layout_marginBottom="2dp"
+                    android:layout_below="@+id/item_name"/>
+
+                <TextView
+                    android:id="@+id/item_total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="$12.50"
+                    android:textSize="18sp"
+                    android:textColor="?android:textColorPrimary"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/item_category"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom|end"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="12dp">
+
+                <ImageButton
+                    android:id="@+id/item_decrease_button"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_sharp_remove_24"
+                    android:padding="7dp"
+                    app:tint="@color/dark_gray"
+                    android:background="@drawable/rounded_rectangle"
+                    android:backgroundTint="@color/primary_light"/>
+
+                <TextView
+                    android:id="@+id/item_quantity"
+                    android:layout_width="45dp"
+                    android:layout_height="32dp"
+                    tools:text="4"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"/>
+
+                <ImageButton
+                    android:id="@+id/item_increase_button"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_sharp_add_24"
+                    android:padding="7dp"
+                    app:tint="@color/dark_gray"
+                    android:background="@drawable/cart_button_background"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

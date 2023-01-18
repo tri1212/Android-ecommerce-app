@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MULTIVERSESHOP</string>
+
+    <string-array name="sort_array">
+        <item>Name</item>
+        <item>Price</item>
+        <item>Popularity</item>
+    </string-array>
+
+    <string-array name="filter_array">
+        <item>None</item>
+        <item>Food</item>
+        <item>Drinks</item>
+        <item>Tech</item>
+        <item>Fashion</item>
+        <item>Sports</item>
+        <item>Pet</item>
+    </string-array>
+</resources>
