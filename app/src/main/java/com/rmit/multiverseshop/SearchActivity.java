@@ -136,6 +136,7 @@ public class SearchActivity extends AppCompatActivity {
         }
 
         loadProducts();
+        sortProducts();
     }
 
     @Override
@@ -182,7 +183,7 @@ public class SearchActivity extends AppCompatActivity {
                 Collections.sort(products, (p1, p2) -> Integer.compare(p2.getProductsSold(), p1.getProductsSold()));
                 break;
             case "name":
-                Collections.sort(products, (p1, p2) -> p2.getName().compareTo(p1.getName()));
+                Collections.sort(products, (p1, p2) -> p1.getName().compareTo(p2.getName()));
                 break;
         }
         adapter.notifyDataSetChanged();
