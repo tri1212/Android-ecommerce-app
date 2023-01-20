@@ -112,17 +112,21 @@ public class AddToCartFragment extends BottomSheetDialogFragment {
                     }
                 }
                 if (!isInCart) items.add(item);
-                document.getReference().update("items", items);
+                document.getReference().update("items", items)
+                        .addOnCompleteListener(task1 -> {
+                            Toast.makeText(view.getContext(), task1.isSuccessful()
+                                    ? "Added to cart"
+                                    : "Failed to add to cart", Toast.LENGTH_SHORT).show();
+                        });
             } else {
                 // If user's cart does not exist, create a new cart and add the item
                 docRef.set(Collections.singletonMap("items", Collections.singletonList(item)))
                         .addOnCompleteListener(task1 -> {
-                            if (task1.isCanceled())
-                                Toast.makeText(getContext(), "Failed to create cart",
-                                        Toast.LENGTH_SHORT).show();
+                            Toast.makeText(view.getContext(), task1.isSuccessful()
+                                    ? "Added to cart"
+                                    : "Failed to add to cart", Toast.LENGTH_SHORT).show();
                         });
             }
-            Toast.makeText(view.getContext(), "Added to cart", Toast.LENGTH_SHORT).show();
         });
     }
 }
