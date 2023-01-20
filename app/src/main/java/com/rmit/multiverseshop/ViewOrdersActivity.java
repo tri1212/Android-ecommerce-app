@@ -73,8 +73,8 @@ public class ViewOrdersActivity extends AppCompatActivity
             if (document != null && document.exists()) {
                 orders = document.toObject(OrderList.class).getOrders();
                 adapter.setOrders(orders);
-                updateUI();
             }
+            updateUI();
         });
     }
 
