@@ -58,7 +58,9 @@ public class OrderDetailsViewAdapter extends
         CartItem orderItem = orderItems.get(holder.getAdapterPosition());
 
         Picasso.get().load(orderItem.getProduct().getImageUrl())
-                .placeholder(R.drawable.placeholder).into(holder.image);
+                .resize(0, 90)
+                .placeholder(R.drawable.placeholder)
+                .into(holder.image);
 
         String category = orderItem.getProduct().getCategory().substring(0, 1).toUpperCase() +
                 orderItem.getProduct().getCategory().substring(1).toLowerCase();
