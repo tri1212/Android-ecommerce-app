@@ -105,12 +105,14 @@ public class CartFragment extends Fragment implements CartViewAdapter.DataChange
         docRef.get().addOnCompleteListener(task -> {
             DocumentSnapshot document = task.getResult();
             if (document != null && document.exists()) {
-                List<HashMap<String, Object>> items = document.toObject(CartItemList.class).getItems();
-                if (items.size() == 0) {
-                    updateUI();
+                List<HashMap<String, Object>> items;
+                try {
+                    items = document.toObject(CartItemList.class).getItems();
+                    cartItems.clear();
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
                     return;
                 }
-                cartItems.clear();
                 for (HashMap<String, Object> item : items) {
                     db.collection("products")
                             .document(item.get("id").toString())
@@ -131,7 +133,8 @@ public class CartFragment extends Fragment implements CartViewAdapter.DataChange
                             });
                 }
             }
-       });
+            updateUI();
+        });
     }
 
     @Override
