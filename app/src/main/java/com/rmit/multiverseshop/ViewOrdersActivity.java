@@ -71,8 +71,12 @@ public class ViewOrdersActivity extends AppCompatActivity
         docRef.get().addOnCompleteListener(task -> {
             DocumentSnapshot document = task.getResult();
             if (document != null && document.exists()) {
-                orders = document.toObject(OrderList.class).getOrders();
-                adapter.setOrders(orders);
+                try {
+                    orders = document.toObject(OrderList.class).getOrders();
+                    adapter.setOrders(orders);
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                }
             }
             updateUI();
         });
