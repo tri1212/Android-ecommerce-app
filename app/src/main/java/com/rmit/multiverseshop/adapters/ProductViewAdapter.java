@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.rmit.multiverseshop.AddToCartFragment;
 import com.rmit.multiverseshop.R;
@@ -59,7 +60,11 @@ public class ProductViewAdapter extends RecyclerView.Adapter<ProductViewAdapter.
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product product = productList.get(holder.getAdapterPosition());
 
-        Picasso.get().load(product.getImageUrl()).placeholder(R.drawable.placeholder).into(holder.productImage);
+        Picasso.get()
+                .load(product.getImageUrl())
+                .resize(0, 170)
+                .placeholder(R.drawable.placeholder)
+                .into(holder.productImage);
 
         String productsSold = String.format(Locale.US, "%d sold", product.getProductsSold());
         String price = String.format(Locale.US, "$%.2f", product.getPrice());
