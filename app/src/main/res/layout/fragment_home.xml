@@ -22,7 +22,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MULTIVERSESHOP"
+                android:text="@string/app_name"
                 android:textColor="@color/dark_gray"
                 android:textAlignment="center"
                 android:textSize="26sp"
@@ -64,7 +64,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Categories"
+                    android:text="@string/categories"
                     android:layout_marginVertical="10dp"
                     android:textColor="?android:textColorPrimary"
                     android:textSize="20sp"
@@ -108,7 +108,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Food"
+                                    android:text="@string/food"
                                     android:textColor="?android:textColorSecondary"
                                     android:textSize="16sp"
                                     android:textAlignment="center"
@@ -145,7 +145,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Drinks"
+                                    android:text="@string/drinks"
                                     android:textColor="?android:textColorSecondary"
                                     android:textSize="16sp"
                                     android:textAlignment="center"
@@ -180,7 +180,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Tech"
+                                    android:text="@string/tech"
                                     android:textColor="?android:textColorSecondary"
                                     android:textSize="16sp"
                                     android:textAlignment="center"
@@ -216,7 +216,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Fashion"
+                                    android:text="@string/fashion"
                                     android:textColor="?android:textColorSecondary"
                                     android:textSize="16sp"
                                     android:textAlignment="center"
@@ -251,7 +251,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Sports"
+                                    android:text="@string/sports"
                                     android:textColor="?android:textColorSecondary"
                                     android:textSize="16sp"
                                     android:textAlignment="center"
@@ -288,7 +288,7 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Pet"
+                                    android:text="@string/pet"
                                     android:textColor="?android:textColorSecondary"
                                     android:textSize="16sp"
                                     android:textAlignment="center"
@@ -304,7 +304,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Popular Products"
+                    android:text="@string/popular_products"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="5dp"
                     android:textColor="?android:textColorPrimary"

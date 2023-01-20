@@ -11,9 +11,10 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import static com.rmit.multiverseshop.helpers.Validator.isValidEmail;
+import static com.rmit.multiverseshop.utils.Validator.isValidEmail;
 
 public class LoginActivity extends AppCompatActivity {
+
     TextView signUpText;
     EditText emailText;
     EditText passwordText;
@@ -54,7 +55,6 @@ public class LoginActivity extends AppCompatActivity {
             passwordText.setError("Enter your password");
             return;
         }
-
         emailText.setError(null);
         passwordText.setError(null);
 

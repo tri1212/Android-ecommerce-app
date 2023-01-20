@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
+
     private final HomeFragment homeFragment = new HomeFragment();
     private final CartFragment cartFragment = new CartFragment();
     private final AccountFragment accountFragment = new AccountFragment();
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
         // If user is not logged in, redirect to login page
         if (user == null) {
-            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
         }
     }
 }

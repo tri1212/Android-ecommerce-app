@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class SearchActivity extends AppCompatActivity {
+
     FirebaseFirestore db;
 
     ProductViewAdapter adapter;
@@ -125,6 +126,15 @@ public class SearchActivity extends AppCompatActivity {
         if(query != null)
             searchView.setQuery(query, false);
 
+        if(filterBy != null) {
+            String[] filters = getResources().getStringArray(R.array.filter_array);
+            int index;
+            for (index = 0; index < filters.length - 1; index++)
+                if (filters[index].equalsIgnoreCase(filterBy)) break;
+
+            filterSpinner.setSelection(index);
+        }
+
         loadProducts();
     }
 
@@ -150,7 +160,7 @@ public class SearchActivity extends AppCompatActivity {
                         if ((query != null
                                 && product.getName().toLowerCase().contains(query.toLowerCase())
                                 && (filterBy == null || "none".equals(filterBy) || product.getCategory().equals(filterBy)))
-                                || (query == null && product.getCategory().equals(filterBy))) {
+                                || (query == null && ("none".equals(filterBy) || product.getCategory().equals(filterBy)))) {
                             products.add(product);
                         }
                     }

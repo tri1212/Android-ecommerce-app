@@ -10,9 +10,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static com.rmit.multiverseshop.helpers.Validator.isValidEmail;
+import static com.rmit.multiverseshop.utils.Validator.isValidEmail;
 
 public class RegisterActivity extends AppCompatActivity {
+
     TextView signInText;
     EditText emailText;
     EditText passwordText;

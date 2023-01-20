@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class HomeFragment extends Fragment {
+
     FirebaseFirestore db;
 
     ProductViewAdapter adapter;
@@ -63,7 +64,20 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        view.findViewById(R.id.food_category).setOnClickListener(view1 -> searchByCategory("food"));
+        view.findViewById(R.id.drinks_category).setOnClickListener(view1 -> searchByCategory("drinks"));
+        view.findViewById(R.id.tech_category).setOnClickListener(view1 -> searchByCategory("tech"));
+        view.findViewById(R.id.fashion_category).setOnClickListener(view1 -> searchByCategory("fashion"));
+        view.findViewById(R.id.sports_category).setOnClickListener(view1 -> searchByCategory("sports"));
+        view.findViewById(R.id.pet_category).setOnClickListener(view1 -> searchByCategory("pet"));
+
         return view;
+    }
+
+    private void searchByCategory(String category) {
+        Intent searchIntent = new Intent(getActivity(), SearchActivity.class);
+        searchIntent.putExtra("category", category);
+        startActivity(searchIntent);
     }
 
     @Override
@@ -91,8 +105,8 @@ public class HomeFragment extends Fragment {
                 .orderBy("productsSold", Query.Direction.DESCENDING).limit(20)
                 .addSnapshotListener((querySnapshot, error) -> {
                     if (querySnapshot == null || error != null) {
-                        Toast.makeText(getContext(),
-                                "Failed to fetch products", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Failed to fetch products",
+                                Toast.LENGTH_SHORT).show();
                         return;
                     }
                     popularProducts.clear();

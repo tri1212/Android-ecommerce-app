@@ -1,15 +1,14 @@
 package com.rmit.multiverseshop.adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.material.card.MaterialCardView;
 import com.rmit.multiverseshop.AddToCartFragment;
 import com.rmit.multiverseshop.R;
 import com.rmit.multiverseshop.model.Product;
@@ -23,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ProductViewAdapter extends RecyclerView.Adapter<ProductViewAdapter.ProductViewHolder> {
+
     private List<Product> productList;
     Context context;
 
@@ -37,7 +37,6 @@ public class ProductViewAdapter extends RecyclerView.Adapter<ProductViewAdapter.
         TextView productSoldCount;
         TextView productPrice;
         ImageButton addToCartButton;
-        MaterialCardView productCard;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -46,7 +45,6 @@ public class ProductViewAdapter extends RecyclerView.Adapter<ProductViewAdapter.
             productSoldCount = itemView.findViewById(R.id.product_sold_count);
             productPrice = itemView.findViewById(R.id.product_price);
             addToCartButton = itemView.findViewById(R.id.add_to_cart_button);
-            productCard = itemView.findViewById(R.id.product_card);
         }
     }
 
@@ -59,19 +57,22 @@ public class ProductViewAdapter extends RecyclerView.Adapter<ProductViewAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        Product product = productList.get(position);
+        Product product = productList.get(holder.getAdapterPosition());
 
         Picasso.get().load(product.getImageUrl()).placeholder(R.drawable.placeholder).into(holder.productImage);
 
-        holder.productName.setText(product.getName());
-        holder.productSoldCount.setText(String.format(Locale.US, "%d sold", product.getProductsSold()));
-        holder.productPrice.setText(String.format(Locale.US, "$%.2f", product.getPrice()));
-        holder.addToCartButton.setOnClickListener(view -> {
-            Toast.makeText(view.getContext(), "Added to cart", Toast.LENGTH_SHORT).show();
-        });
+        String productsSold = String.format(Locale.US, "%d sold", product.getProductsSold());
+        String price = String.format(Locale.US, "$%.2f", product.getPrice());
 
-        holder.productCard.setOnClickListener(view -> {
+        holder.productName.setText(product.getName());
+        holder.productSoldCount.setText(productsSold);
+        holder.productPrice.setText(price);
+        holder.addToCartButton.setOnClickListener(view -> {
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("product", product);
+
             AddToCartFragment addToCartFragment = new AddToCartFragment();
+            addToCartFragment.setArguments(bundle);
             addToCartFragment.show(((AppCompatActivity) context).getSupportFragmentManager(),
                     addToCartFragment.getTag());
         });

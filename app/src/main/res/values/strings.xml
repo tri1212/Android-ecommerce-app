@@ -1,5 +1,37 @@
 <resources>
     <string name="app_name">MULTIVERSESHOP</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="address">Address</string>
+    <string name="phone_number">Phone number</string>
+    <string name="place_order">Place order</string>
+    <string name="sign_in">Sign in</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signup_hint">Don\'t have an account yet?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="order_details">Order Details</string>
+    <string name="repeat_password">Repeat password</string>
+    <string name="signin_hint">Already have an account?</string>
+    <string name="sort_by">Sort by</string>
+    <string name="filter_by">Filter by</string>
+    <string name="no_orders_hint">You don\'t have any orders</string>
+    <string name="account">Account</string>
+    <string name="view_orders">View Orders</string>
+    <string name="sign_out">Sign out</string>
+    <string name="my_cart">My Cart</string>
+    <string name="cart_empty_hint">There are no items in your cart</string>
+    <string name="items">Items</string>
+    <string name="total">Total</string>
+    <string name="checkout">Checkout</string>
+    <string name="categories">Categories</string>
+    <string name="food">Food</string>
+    <string name="drinks">Drinks</string>
+    <string name="tech">Tech</string>
+    <string name="fashion">Fashion</string>
+    <string name="sports">Sports</string>
+    <string name="pet">Pet</string>
+    <string name="popular_products">Popular Products</string>
+    <string name="view_details">View details</string>
 
     <string-array name="sort_array">
         <item>Name</item>

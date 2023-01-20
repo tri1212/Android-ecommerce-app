@@ -1,23 +1,36 @@
 package com.rmit.multiverseshop.model;
 
-public class Product {
+import com.google.firebase.firestore.DocumentId;
+
+import java.io.Serializable;
+
+public class Product implements Serializable {
+
+    @DocumentId
+    private String id;
     private String imageUrl;
     private String name;
     private String category;
-    private String lowercasedName;
     private int productsSold;
     private double price;
 
-    public Product(String imageUrl, String name, String category, String lowercasedName, int productsSold, double price) {
+    public Product(String imageUrl, String name, String category, int productsSold, double price) {
         this.imageUrl = imageUrl;
         this.name = name;
         this.category = category;
-        this.lowercasedName = lowercasedName;
         this.productsSold = productsSold;
         this.price = price;
     }
 
     public Product() {}
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getImageUrl() {
         return imageUrl;
@@ -57,13 +70,5 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public String getLowercasedName() {
-        return lowercasedName;
-    }
-
-    public void setLowercasedName(String lowercasedName) {
-        this.lowercasedName = lowercasedName;
     }
 }

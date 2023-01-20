@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="130dp"
     xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="15dp"
     app:cardElevation="5dp"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginVertical="8dp">
+    android:layout_margin="8dp">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -19,7 +19,7 @@
             android:layout_width="120dp"
             android:layout_height="match_parent"
             android:src="@drawable/product_five"
-            android:scaleType="centerCrop"/>
+            android:scaleType="fitCenter"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -41,7 +41,7 @@
                     android:maxLines="1"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="2dp"
-                    android:textColor="@color/black"
+                    android:textColor="?android:textColorPrimary"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"/>
 
@@ -94,7 +94,7 @@
                     android:padding="7dp"
                     app:tint="@color/dark_gray"
                     android:background="@drawable/rounded_rectangle"
-                    android:backgroundTint="@color/primary_light"/>
+                    android:backgroundTint="@color/primary1"/>
 
                 <TextView
                     android:id="@+id/item_quantity"
@@ -102,7 +102,7 @@
                     android:layout_height="32dp"
                     tools:text="4"
                     android:gravity="center"
-                    android:textColor="@color/black"
+                    android:textColor="?android:textColorPrimary"
                     android:textSize="18sp"/>
 
                 <ImageButton

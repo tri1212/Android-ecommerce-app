@@ -6,20 +6,22 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 public class AccountFragment extends Fragment {
-    RelativeLayout signOut;
+
+    CardView viewOrders;
+    CardView signOut;
     FirebaseAuth auth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.account_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_account, container, false);
 
         auth = FirebaseAuth.getInstance();
 
@@ -38,6 +40,11 @@ public class AccountFragment extends Fragment {
                     .create()
                     .show();
         });
+        viewOrders = view.findViewById(R.id.option_orders);
+        viewOrders.setOnClickListener(view1 -> {
+            startActivity(new Intent(getContext(), ViewOrdersActivity.class));
+        });
+
         return view;
     }
 }
