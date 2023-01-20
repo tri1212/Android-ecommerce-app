@@ -72,7 +72,11 @@ public class CartViewAdapter extends RecyclerView.Adapter<CartViewAdapter.CartVi
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         CartItem cartItem = cartItems.get(holder.getAdapterPosition());
 
-        Picasso.get().load(cartItem.getProduct().getImageUrl()).placeholder(R.drawable.placeholder).into(holder.itemImage);
+        Picasso.get()
+                .load(cartItem.getProduct().getImageUrl())
+                .resize(0, 130)
+                .placeholder(R.drawable.placeholder)
+                .into(holder.itemImage);
 
         String category = cartItem.getProduct().getCategory().substring(0, 1).toUpperCase() +
                 cartItem.getProduct().getCategory().substring(1).toLowerCase();
