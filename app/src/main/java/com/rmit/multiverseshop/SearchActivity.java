@@ -122,6 +122,7 @@ public class SearchActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         query = extras.getString("search_query");
         filterBy = extras.getString("category");
+        sortBy = "name";
 
         if(query != null)
             searchView.setQuery(query, false);
