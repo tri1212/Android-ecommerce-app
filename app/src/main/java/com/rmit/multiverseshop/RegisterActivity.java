@@ -54,6 +54,9 @@ public class RegisterActivity extends AppCompatActivity {
         } else if (password.isEmpty()) {
             passwordText.setError("Password cannot be empty");
             return;
+        } else if (password.length() < 6) {
+            passwordText.setError("Password must be at least 6 characters long");
+            return;
         } else if (repeatPassword.isEmpty()) {
             repeatPasswordText.setError("Repeat your password");
             return;
@@ -73,7 +76,9 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
-                    Toast.makeText(RegisterActivity.this, "Registration failed",
+                    Exception e = task.getException();
+                    Toast.makeText(RegisterActivity.this, 
+                            e != null ? e.getMessage() : "Registration failed", 
                             Toast.LENGTH_SHORT).show();
                 }
             });
