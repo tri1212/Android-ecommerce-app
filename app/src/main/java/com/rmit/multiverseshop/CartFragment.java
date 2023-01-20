@@ -96,6 +96,8 @@ public class CartFragment extends Fragment implements CartViewAdapter.DataChange
             return;
         }
 
+        cartItems.clear();
+
         DocumentReference docRef = db.collection("userCarts")
                 .document(auth.getCurrentUser().getUid());
 
@@ -105,7 +107,6 @@ public class CartFragment extends Fragment implements CartViewAdapter.DataChange
                 List<HashMap<String, Object>> items;
                 try {
                     items = document.toObject(CartItemList.class).getItems();
-                    cartItems.clear();
                 } catch (RuntimeException e) {
                     e.printStackTrace();
                     return;
