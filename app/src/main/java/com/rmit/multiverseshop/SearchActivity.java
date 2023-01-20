@@ -137,7 +137,6 @@ public class SearchActivity extends AppCompatActivity {
         }
 
         loadProducts();
-        sortProducts();
     }
 
     @Override
@@ -170,6 +169,7 @@ public class SearchActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
+                    sortProducts();
                     adapter.notifyDataSetChanged();
                     searchResultsText.setText("Products found: " + products.size());
                 });
