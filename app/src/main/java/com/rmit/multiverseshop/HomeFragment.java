@@ -111,9 +111,13 @@ public class HomeFragment extends Fragment {
                     }
                     popularProducts.clear();
                     for(DocumentSnapshot document: querySnapshot.getDocuments()) {
-                        Product product = document.toObject(Product.class);
-                        if (product == null) continue;
-                        popularProducts.add(product);
+                        try {
+                            Product product = document.toObject(Product.class);
+                            if (product == null) continue;
+                            popularProducts.add(product);
+                        } catch (RuntimeException e) {
+                            e.printStackTrace();
+                        }
                     }
                     adapter.notifyDataSetChanged();
                 });
