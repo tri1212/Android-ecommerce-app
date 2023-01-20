@@ -67,6 +67,7 @@ public class CheckoutActivity extends AppCompatActivity {
             return;
         }
 
+        // Validate input details
         String name = String.valueOf(nameText.getEditText().getText());
         String address = String.valueOf(addressText.getEditText().getText());
         String phone = String.valueOf(phoneText.getEditText().getText());
@@ -102,14 +103,27 @@ public class CheckoutActivity extends AppCompatActivity {
         docRef.get().addOnCompleteListener(task -> {
             DocumentSnapshot document = task.getResult();
             if (document != null && document.exists()) {
-                List<Order> orders = document.toObject(OrderList.class).getOrders();
-                if (orders == null) return;
-                orders.add(order);
-                document.getReference().update("orders", orders);
+                try {
+                    List<Order> orders = document.toObject(OrderList.class).getOrders();
+                    if (orders == null) return;
+                    orders.add(order);
+                    document.getReference().update("orders", orders)
+                            .addOnCompleteListener(task1 -> {
+                                Toast.makeText(this, task.isSuccessful() 
+                                                ? "Order placed" 
+                                                : "Failed to place order", Toast.LENGTH_SHORT).show();
+                            });
+                } catch (RuntimeException e) {
+                    e.printStackTrace();
+                }
             } else {
-                docRef.set(Collections.singletonMap("orders", Collections.singletonList(order)));
+                docRef.set(Collections.singletonMap("orders", Collections.singletonList(order)))
+                        .addOnCompleteListener(task1 -> {
+                            Toast.makeText(this, task.isSuccessful()
+                                    ? "Order placed"
+                                    : "Failed to place order", Toast.LENGTH_SHORT).show();
+                        });
             }
-            Toast.makeText(this, "Order placed", Toast.LENGTH_SHORT).show();
 
             // Increase product sold amount
             for (CartItem item : cartItems) {
@@ -118,7 +132,7 @@ public class CheckoutActivity extends AppCompatActivity {
                         .update("productsSold", FieldValue.increment(item.getQuantity()))
                         .addOnCompleteListener(task1 -> {
                             if (task.isCanceled())
-                                Toast.makeText(this, "Failed to update product",
+                                Toast.makeText(this, "Failed to update products",
                                         Toast.LENGTH_SHORT).show();
                         });
             }
