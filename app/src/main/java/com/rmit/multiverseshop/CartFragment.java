@@ -82,13 +82,10 @@ public class CartFragment extends Fragment implements CartViewAdapter.DataChange
         return view;
     }
 
-    boolean isLoading;
-
     @Override
     public void onStart() {
         super.onStart();
         getCart();
-        isLoading = true;
     }
 
     // Get current user's cart
