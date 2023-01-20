@@ -101,7 +101,6 @@ public class ViewOrdersActivity extends AppCompatActivity
         if (orders.size() == 0) {
             noItemsText.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
-            return;
         } else {
             noItemsText.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
