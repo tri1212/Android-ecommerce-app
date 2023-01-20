@@ -155,13 +155,17 @@ public class SearchActivity extends AppCompatActivity {
                     products.clear();
 
                     for(DocumentSnapshot document: querySnapshot.getDocuments()) {
-                        Product product = document.toObject(Product.class);
-                        if (product == null) return;
-                        if ((query != null
-                                && product.getName().toLowerCase().contains(query.toLowerCase())
-                                && (filterBy == null || "none".equals(filterBy) || product.getCategory().equals(filterBy)))
-                                || (query == null && ("none".equals(filterBy) || product.getCategory().equals(filterBy)))) {
-                            products.add(product);
+                        try {
+                            Product product = document.toObject(Product.class);
+                            if (product == null) return;
+                            if ((query != null
+                                    && product.getName().toLowerCase().contains(query.toLowerCase())
+                                    && (filterBy == null || "none".equals(filterBy) || product.getCategory().equals(filterBy)))
+                                    || (query == null && ("none".equals(filterBy) || product.getCategory().equals(filterBy)))) {
+                                products.add(product);
+                            }
+                        } catch (RuntimeException e) {
+                            e.printStackTrace();
                         }
                     }
                     adapter.notifyDataSetChanged();
