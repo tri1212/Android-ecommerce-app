@@ -118,11 +118,15 @@ public class CartFragment extends Fragment implements CartViewAdapter.DataChange
                             .addOnCompleteListener(task1 -> {
                                 DocumentSnapshot document1 = task1.getResult();
                                 if (document1 != null && document1.exists()) {
-                                    Product product = document1.toObject(Product.class);
-                                    cartItems.add(new CartItem(product,
-                                            Integer.parseInt(item.get("quantity").toString())));
-                                    adapter.notifyDataSetChanged();
-                                    updateUI();
+                                    try {
+                                        Product product = document1.toObject(Product.class);
+                                        cartItems.add(new CartItem(product,
+                                                Integer.parseInt(item.get("quantity").toString())));
+                                        adapter.notifyDataSetChanged();
+                                        updateUI();
+                                    } catch (RuntimeException e) {
+                                        e.printStackTrace();
+                                    }
                                 }
                             });
                 }
